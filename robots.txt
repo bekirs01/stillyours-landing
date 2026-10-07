@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bekirs01.github.io/stillyours-landing/sitemap.xml
