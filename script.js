@@ -6,15 +6,6 @@
   var playStoreUrl = String(config.GOOGLE_PLAY_URL || "").trim();
   var measurementId = String(config.GA4_MEASUREMENT_ID || "").trim();
   var lastClick = { key: "", at: 0 };
-  var reduceMotion = false;
-
-  try {
-    reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-  } catch (err) {
-    reduceMotion = false;
-  }
 
   function isUsableHttpUrl(value) {
     if (!value) {
@@ -47,10 +38,6 @@
       return "android";
     }
     return "other";
-  }
-
-  function isDesktop() {
-    return window.matchMedia("(min-width: 768px)").matches;
   }
 
   function readLandingUtms() {
@@ -144,9 +131,6 @@
     if (document.getElementById("download")) {
       return "#download";
     }
-    if (document.getElementById("final-cta")) {
-      return "#final-cta";
-    }
     return "./#download";
   }
 
@@ -187,7 +171,8 @@
     }
 
     el.addEventListener("click", function (event) {
-      var key = eventName + ":" + (el.id || el.getAttribute("data-cta-id") || destinationStore);
+      var key =
+        eventName + ":" + (el.id || el.getAttribute("data-cta-id") || destinationStore);
       if (shouldDebounce(key)) {
         event.preventDefault();
         return;
@@ -200,18 +185,6 @@
     });
   }
 
-  function syncComingSoon() {
-    var hasAppStore = isUsableHttpUrl(appStoreUrl);
-    document.documentElement.classList.toggle("has-app-store", hasAppStore);
-    document.querySelectorAll("[data-store-soon]").forEach(function (el) {
-      if (hasAppStore) {
-        el.setAttribute("hidden", "");
-      } else {
-        el.removeAttribute("hidden");
-      }
-    });
-  }
-
   function bindGetApp(el) {
     if (!el) {
       return;
@@ -219,8 +192,8 @@
     el.setAttribute("href", fallbackCtaHref());
 
     el.addEventListener("click", function (event) {
-      var dest = preferredStore();
-      if (!dest) {
+      var target = document.getElementById("download");
+      if (!target) {
         return;
       }
       if (shouldDebounce("get-app:" + (el.id || "primary"))) {
@@ -228,8 +201,16 @@
         return;
       }
       event.preventDefault();
-      trackStoreClick(dest.eventName, dest.destinationStore, dest.url);
-      window.location.href = dest.url;
+      var reduce = false;
+      try {
+        reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      } catch (err) {
+        reduce = false;
+      }
+      target.scrollIntoView({
+        behavior: reduce ? "auto" : "smooth",
+        block: "center"
+      });
     });
   }
 
@@ -238,71 +219,6 @@
       "is-scrolled",
       window.scrollY > 8
     );
-  }
-
-  function setupSticky() {
-    var bar = document.getElementById("sticky-cta");
-    if (!bar || isDesktop()) {
-      return;
-    }
-
-    var hero = document.getElementById("download");
-    var mid = document.getElementById("mid-cta");
-    var closer = document.getElementById("final-cta");
-    if (!hero) {
-      return;
-    }
-
-    var vis = { hero: true, mid: false, closer: false };
-
-    function render() {
-      var show = !vis.hero && !vis.mid && !vis.closer;
-      if (show) {
-        bar.removeAttribute("hidden");
-      } else {
-        bar.setAttribute("hidden", "");
-      }
-    }
-
-    if (!("IntersectionObserver" in window)) {
-      return;
-    }
-
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.target.id === "download") {
-            vis.hero = entry.isIntersecting;
-          } else if (entry.target.id === "mid-cta") {
-            vis.mid = entry.isIntersecting;
-          } else if (entry.target.id === "final-cta") {
-            vis.closer = entry.isIntersecting;
-          }
-        });
-        render();
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -12% 0px" }
-    );
-
-    io.observe(hero);
-    if (mid) {
-      io.observe(mid);
-    }
-    if (closer) {
-      io.observe(closer);
-    }
-    render();
-  }
-
-  function pauseMarqueeOnTouch() {
-    var band = document.querySelector(".notes-atmosphere");
-    var track = document.querySelector(".notes-track");
-    if (!band || !track || reduceMotion) {
-      return;
-    }
-    band.addEventListener("pointerdown", function () {
-      track.style.animationPlayState = "paused";
-    });
   }
 
   function stampYear() {
@@ -328,7 +244,6 @@
   syncScrolled();
 
   loadGa4(measurementId);
-  syncComingSoon();
   stampYear();
 
   document.querySelectorAll('[data-store="app"]').forEach(function (el) {
@@ -339,6 +254,4 @@
   });
 
   bindGetApp(document.getElementById("cta-get-app-header"));
-  setupSticky();
-  pauseMarqueeOnTouch();
 })();

@@ -9,23 +9,23 @@
     <title>StillYours — A couples app beyond the chat</title>
     <meta
       name="description"
-      content="StillYours is a couples app for the hours between messages. Share a pet, couple widgets, drawings, memories, Love Race, and a quieter sense of closeness — together or apart."
+      content="StillYours is a couples app for staying close with your partner. Share a companion, couple widgets, and quiet closeness — together or apart."
     />
     <link
       rel="canonical"
       href="https://bekirs01.github.io/stillyours-landing/"
     />
     <meta name="robots" content="index,follow" />
-    <meta name="theme-color" content="#F6F0E6" />
+    <meta name="theme-color" content="#F6C4B3" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="StillYours" />
     <meta
       property="og:title"
-      content="StillYours — A little world that stays between you"
+      content="StillYours — Stay close, even when you’re apart"
     />
     <meta
       property="og:description"
-      content="A couples app for the hours between messages. Shared pet, widgets, drawings, and closeness — even when you’re apart."
+      content="A couples app to stay connected with your partner. Shared companion, widgets, and quiet closeness."
     />
     <meta
       property="og:url"
@@ -45,7 +45,7 @@
     />
     <meta
       name="twitter:description"
-      content="Share a pet. Leave something on their home screen. Stay close in the small parts of the day."
+      content="Stay connected with your partner. Share a companion and little widgets that wait for them."
     />
     <meta
       name="twitter:image"
@@ -59,11 +59,11 @@
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&amp;family=Onest:wght@400;500;600&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,650&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&amp;family=Onest:wght@400;500;600&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,650&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
     />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./config.js" defer></script>
@@ -71,25 +71,17 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-
-    <div class="paper-room" aria-hidden="true">
-      <div class="paper-field"></div>
-      <div class="paper-crumple"></div>
-      <div class="paper-sheet paper-sheet--under paper-sheet--blush"></div>
-      <div class="paper-sheet paper-sheet--under paper-sheet--mist"></div>
-      <div class="paper-sheet paper-sheet--main"></div>
-      <div class="paper-grain"></div>
-      <div class="paper-vignette"></div>
-      <div class="drift-heart drift-heart-a">
-        <img src="./assets/visual/svg/heart-paper.svg" alt="" width="18" height="18" />
-      </div>
-      <div class="drift-heart drift-heart-b">
-        <img src="./assets/visual/svg/heart-stroke.svg" alt="" width="16" height="16" />
-      </div>
-      <div class="drift-heart drift-heart-c">
-        <img src="./assets/visual/svg/heart-paper.svg" alt="" width="14" height="14" />
-      </div>
-    </div>
+    <div class="page-glow" aria-hidden="true"></div>
+    <div class="page-wash" aria-hidden="true"></div>
+    <div class="page-grain" aria-hidden="true"></div>
+    <svg class="page-heart" viewBox="0 0 240 220" aria-hidden="true" focusable="false">
+      <path
+        d="M120 198s-72-44-72-96C48 72 70 50 96 50c14 0 24 9 24 20 0-11 10-20 24-20 26 0 48 22 48 52 0 52-72 96-72 96z"
+        fill="none"
+        stroke="rgba(197,107,98,0.13)"
+        stroke-width="2.2"
+      />
+    </svg>
 
     <header class="site-header" id="site-header">
       <div class="shell header-inner">
@@ -98,17 +90,14 @@
             class="brand-mark"
             src="./assets/brand/app-icon-192.png"
             alt=""
-            width="36"
-            height="36"
+            width="44"
+            height="44"
           />
           <span class="wordmark">StillYours</span>
         </a>
-        <nav class="header-nav" aria-label="Page">
-          <a class="header-link" href="#special">Why StillYours</a>
-          <a class="header-cta" id="cta-get-app-header" href="#download"
-            >Get the app</a
-          >
-        </nav>
+        <a class="header-cta" id="cta-get-app-header" href="#download"
+          >Get the app</a
+        >
       </div>
     </header>
 
@@ -116,405 +105,300 @@
       <section class="hero" id="hero" aria-labelledby="hero-heading">
         <div class="shell hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">A shared nest for two.</p>
+            <p class="eyebrow">StillYours · Couples App</p>
             <h1 id="hero-heading">
-              <span class="hero-line">Still close.</span>
-              <span class="hero-line hero-line--write">
-                Still yours.
+              Stay close,<br />
+              even when<br class="m-break" />
+              you’re
+              <span class="hero-mark">
+                apart.
                 <svg
                   class="write-stroke"
-                  viewBox="0 0 168 18"
-                  width="168"
-                  height="18"
+                  viewBox="0 0 120 14"
+                  width="120"
+                  height="14"
                   aria-hidden="true"
                   focusable="false"
                 >
                   <path
                     class="write-path"
-                    d="M4 11c28-8 54-8 80 0 22 6 48 8 80-2"
+                    d="M3 8.2c16-4.8 34-6.6 52-3.2 14 2.6 28 5.2 46 1.2"
                     fill="none"
-                    stroke="#D07E70"
-                    stroke-opacity="0.72"
-                    stroke-width="1.8"
+                    stroke="#C56B62"
+                    stroke-width="1.7"
                     stroke-linecap="round"
                   />
                 </svg>
               </span>
             </h1>
             <p class="hero-support">
-              A private world for partners who want to feel present in each
-              other’s ordinary days.
+              A shared companion and widgets that stay on the home screen.
             </p>
-
-            <div class="store-tray cta-slip" id="download">
-              <a
-                class="store-apple"
-                data-store="app"
-                data-cta-id="hero"
-                href="https://apps.apple.com/us/app/stillyours-couples-app/id6800851245"
-              >
-                <img
-                  src="./assets/stores/app-store-badge.svg"
-                  alt="Download StillYours on the App Store"
-                  width="120"
-                  height="40"
-                  decoding="async"
-                />
-              </a>
-              <a
-                class="store-play"
-                data-store="play"
-                data-cta-id="hero"
-                href="https://play.google.com/store/apps/details?id=com.bekirsucikaran.our_child"
-              >
-                <img
-                  src="./assets/stores/google-play-badge.png"
-                  alt="Get it on Google Play"
-                  width="135"
-                  height="40"
-                  decoding="async"
-                />
-              </a>
-              <p class="store-soon" data-store-soon hidden>
-                <span class="store-soon-title">Coming to the App Store</span>
-              </p>
-            </div>
-            <p class="trust-cue">
-              Available on the App Store and Google Play
-            </p>
-            <p class="whisper">Made for two. Private. Everyday closeness.</p>
           </div>
 
-          <div class="sculpture" aria-hidden="true">
-            <div class="sculpture-glow"></div>
-            <div class="paper-obj sheet-back"></div>
-            <div class="paper-obj sheet-mid paper-float">
-              <p class="hand">until we meet</p>
-              <p class="mid-count">12 days</p>
-            </div>
-            <div class="paper-obj sheet-front">
-              <p class="tiny-mark">StillYours</p>
-              <p class="days-num">214</p>
-              <p class="days-label">days together</p>
-              <img
-                class="companion-sit"
-                src="./assets/visual/svg/companion.svg"
-                alt=""
-                width="88"
-                height="94"
-              />
-              <img
-                class="egg-sit"
-                src="./assets/visual/svg/egg.svg"
-                alt=""
-                width="44"
-                height="54"
-              />
-            </div>
-            <div class="paper-obj chip-widget paper-float paper-float-slow">
-              <span class="chip-kicker">Mood Note</span>
-              <span class="chip-word">Missing you</span>
-            </div>
-            <div class="paper-obj float-heart">
-              <img src="./assets/visual/svg/heart-paper.svg" alt="" width="22" height="22" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section special" id="special" aria-labelledby="special-heading">
-        <div class="shell">
-          <p class="kicker reveal">What makes StillYours special</p>
-          <h2 id="special-heading" class="reveal">Love, left where they will find it.</h2>
-          <p class="lead measure reveal">
-            A note on their lock screen. A companion you care for together. A
-            drawing only the two of you can finish.
-          </p>
-
-          <div class="special-flow">
-            <article class="card-feature card-stack-well reveal">
-              <p class="card-kicker">Couple widgets</p>
-              <h3>On their screen, even when the app is closed.</h3>
-              <p>
-                Mood Note, Until We Meet, and Heart Race live on Home and Lock
-                Screen — small doors into the nest.
-              </p>
-              <div class="widget-row" aria-hidden="true">
-                <div class="mini-chip">
-                  <span class="chip-kicker">Mood</span>
-                  <strong>Loved</strong>
-                </div>
-                <div class="mini-chip mini-chip--tilt">
-                  <span class="chip-kicker">Countdown</span>
-                  <strong>11 days</strong>
-                </div>
-                <div class="mini-chip mini-chip--race">
-                  <span class="chip-kicker">Heart Race</span>
-                  <strong>12 – 9</strong>
-                </div>
-              </div>
-            </article>
-
-            <article class="card-letter card-feature reveal">
-              <p class="card-kicker">Shared companion</p>
-              <h3>One small life you take care of together.</h3>
-              <p>
-                A shared virtual pet — from egg to companion — that belongs to
-                both of you. Not his, not hers. Yours.
-              </p>
-              <div class="pet-pair" aria-hidden="true">
-                <img
-                  class="egg-still"
-                  src="./assets/visual/notes/sy-egg.webp"
-                  alt=""
-                  width="110"
-                  height="146"
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-stage">
+              <svg class="stage-heart" viewBox="0 0 200 180" aria-hidden="true">
+                <path
+                  d="M100 158s-58-36-58-78c0-24 18-40 38-40 12 0 20 7 20 16 0-9 8-16 20-16 20 0 38 16 38 40 0 42-58 78-58 78z"
+                  fill="none"
+                  stroke="rgba(197,107,98,0.28)"
+                  stroke-width="3"
                 />
+              </svg>
+              <div class="companion-wrap">
+                <span class="companion-halo"></span>
                 <img
-                  class="pet-still"
-                  src="./assets/visual/svg/companion.svg"
+                  class="companion"
+                  src="./assets/visual/companion-mascot.jpg"
                   alt=""
-                  width="120"
-                  height="128"
+                  width="800"
+                  height="800"
+                  fetchpriority="high"
+                  decoding="async"
                 />
+                <span class="companion-ground"></span>
               </div>
-            </article>
 
-            <article class="card-scrap reveal">
-              <p class="card-kicker">Love Race</p>
-              <h3>Who loves more today?</h3>
-              <p>
-                A playful daily race of hearts. Tiny competition, really a way
-                to say I’m here.
-              </p>
-              <div class="race-art" aria-hidden="true">
-                <span>12</span>
-                <img src="./assets/visual/svg/heart-stroke.svg" alt="" width="28" height="28" />
-                <span>9</span>
-              </div>
-            </article>
-
-            <div class="slip-row">
-              <article class="card-slip reveal">
-                <p class="card-kicker">Drawings &amp; memories</p>
-                <h3>Shared paper. Two hands.</h3>
-                <p>
-                  Leave a sketch, a mood, a kept moment — more lasting than a
-                  disappearing text.
-                </p>
-                <img
-                  class="draw-peek"
-                  src="./assets/visual/svg/draw-scrap.svg"
-                  alt=""
-                  width="220"
-                  height="120"
-                  aria-hidden="true"
-                />
+              <article class="float-card card-days">
+                <p class="card-kicker">Together</p>
+                <p class="card-value">214</p>
+                <span class="card-rule"></span>
+                <p class="card-label">days together</p>
               </article>
-              <aside class="card-counter reveal" aria-hidden="true">
-                <span class="chip-kicker">together</span>
-                <span class="days-num">214</span>
-                <span class="days-label">days</span>
-              </aside>
+
+              <article class="float-card card-meet">
+                <p class="card-kicker">Until we meet</p>
+                <p class="card-value card-value--sm">12 days</p>
+              </article>
+
+              <article class="float-card card-mood">
+                <img
+                  class="mood-thumb"
+                  src="./assets/visual/mood-missing-you.webp"
+                  alt=""
+                  width="48"
+                  height="48"
+                />
+                <div>
+                  <p class="card-kicker">Mood note</p>
+                  <p class="card-mood-line">Missing you</p>
+                </div>
+              </article>
+
+              <span class="hero-heart">♥</span>
+              <span class="hero-sparkle">✦</span>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="section moments" id="moments" aria-labelledby="moments-heading">
-        <div class="shell measure moments-intro reveal">
-          <p class="kicker">Small moments that stay with you</p>
-          <h2 id="moments-heading">Little things couples love.</h2>
-          <p class="caption">
-            Illustrative relationship moments — not reviews from real people.
-          </p>
-        </div>
-
-        <div class="notes-atmosphere">
-          <div class="notes-track" aria-hidden="true">
-            <article class="card-quote rot-a">
-              <p class="moment-label">A little thing</p>
-              <p>I left a tiny drawing on his widget before class.</p>
-            </article>
-            <article class="card-love rot-b">
-              <p class="moment-label">A little thing</p>
-              <p>We fed the pet from two different cities.</p>
-            </article>
-            <article class="card-quote rot-c">
-              <p class="moment-label">A little thing</p>
-              <p>Her battery was at 4%. I told her to plug in.</p>
-            </article>
-            <article class="card-love rot-d">
-              <p class="moment-label">A little thing</p>
-              <p>The day counter sits on my home screen. Quiet, and enough.</p>
-            </article>
-            <article class="card-quote rot-a">
-              <p class="moment-label">A little thing</p>
-              <p>He won Love Race today. I’ll take that as a dare.</p>
-            </article>
-            <article class="card-love rot-b">
-              <p class="moment-label">A little thing</p>
-              <p>Not a chat. Just something waiting when I picked up my phone.</p>
-            </article>
-            <article class="card-quote rot-a">
-              <p class="moment-label">A little thing</p>
-              <p>I left a tiny drawing on his widget before class.</p>
-            </article>
-            <article class="card-love rot-b">
-              <p class="moment-label">A little thing</p>
-              <p>We fed the pet from two different cities.</p>
-            </article>
-            <article class="card-quote rot-c">
-              <p class="moment-label">A little thing</p>
-              <p>Her battery was at 4%. I told her to plug in.</p>
-            </article>
-            <article class="card-love rot-d">
-              <p class="moment-label">A little thing</p>
-              <p>The day counter sits on my home screen. Quiet, and enough.</p>
-            </article>
-            <article class="card-quote rot-a">
-              <p class="moment-label">A little thing</p>
-              <p>He won Love Race today. I’ll take that as a dare.</p>
-            </article>
-            <article class="card-love rot-b">
-              <p class="moment-label">A little thing</p>
-              <p>Not a chat. Just something waiting when I picked up my phone.</p>
-            </article>
-          </div>
-        </div>
-
-        <ul class="moments-static visually-hidden">
-          <li>Illustrative moment: I left a tiny drawing on his widget before class.</li>
-          <li>Illustrative moment: We fed the pet from two different cities.</li>
-          <li>Illustrative moment: Her battery was at 4%. I told her to plug in.</li>
-          <li>Illustrative moment: The day counter sits on my home screen. Quiet, and enough.</li>
-          <li>Illustrative moment: He won Love Race today. I’ll take that as a dare.</li>
-          <li>Illustrative moment: Not a chat. Just something waiting when I picked up my phone.</li>
-        </ul>
-      </section>
-
-      <section class="final-cta" id="final-cta" aria-labelledby="final-heading">
-        <div class="shell">
-          <div class="letter-sheet letter-sheet--final reveal">
-            <p class="eyebrow">StillYours</p>
-            <h2 id="final-heading">Keep a little of them with you.</h2>
-            <p class="lead">
-              Widgets on the lock screen. A shared nest. Notes, drawings, and
-              the quiet sense they are still in your day.
-            </p>
+          <div class="hero-cta" id="download">
             <div class="store-tray">
               <a
                 class="store-apple"
                 data-store="app"
-                data-cta-id="final"
+                data-cta-id="hero"
                 href="https://apps.apple.com/us/app/stillyours-couples-app/id6800851245"
               >
                 <img
                   src="./assets/stores/app-store-badge.svg"
                   alt="Download StillYours on the App Store"
-                  width="120"
-                  height="40"
-                  loading="lazy"
+                  width="160"
+                  height="53"
                   decoding="async"
                 />
               </a>
               <a
                 class="store-play"
                 data-store="play"
-                data-cta-id="final"
+                data-cta-id="hero"
                 href="https://play.google.com/store/apps/details?id=com.bekirsucikaran.our_child"
               >
                 <img
                   src="./assets/stores/google-play-badge.png"
                   alt="Get it on Google Play"
-                  width="135"
-                  height="40"
-                  loading="lazy"
+                  width="168"
+                  height="50"
                   decoding="async"
                 />
               </a>
-              <p class="store-soon" data-store-soon hidden>
-                <span class="store-soon-title">Coming to the App Store</span>
-              </p>
             </div>
-            <p class="whisper">Available on iPhone and Android.</p>
-            <p class="positioning">
-              StillYours is for two people who already know each other. It is
-              not a dating app.
-            </p>
+            <p class="trust-line">Available on iPhone and Android.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="why" id="why" aria-labelledby="why-heading">
+        <div class="shell">
+          <header class="why-intro">
+            <p class="why-eyebrow">Why StillYours</p>
+            <h2 id="why-heading">More than a message.</h2>
+            <p class="why-lead">Little ways to stay part of each other’s day.</p>
+          </header>
+
+          <div class="why-grid">
+            <article class="why-item">
+              <div class="why-visual why-visual--widgets" aria-hidden="true">
+                <div class="widget-cluster">
+                  <div class="mini-widget mini-widget--mood why-float-a">
+                    <p class="mini-kicker">Mood Note</p>
+                    <p class="mini-line">
+                      <img
+                        src="./assets/visual/mood-missing-you.webp"
+                        alt=""
+                        width="32"
+                        height="32"
+                      />
+                      Missing you
+                    </p>
+                  </div>
+                  <div class="mini-widget mini-widget--days">
+                    <p class="mini-kicker">Together</p>
+                    <p class="mini-num">214</p>
+                    <p class="mini-sub">days</p>
+                  </div>
+                  <div class="mini-widget mini-widget--meet">
+                    <p class="mini-kicker">Until we meet</p>
+                    <p class="mini-meet">12 days</p>
+                  </div>
+                </div>
+              </div>
+              <h3>Stay on their screen.</h3>
+              <p>Drawings, notes and little moments live on shared widgets.</p>
+            </article>
+
+            <article class="why-item">
+              <div class="why-visual why-visual--pet" aria-hidden="true">
+                <div class="pet-stage">
+                  <img
+                    class="pet-egg"
+                    src="./assets/visual/svg/companion-egg.svg"
+                    alt=""
+                    width="56"
+                    height="68"
+                  />
+                  <span class="pet-dots" aria-hidden="true"></span>
+                  <div class="pet-grown-wrap">
+                    <img
+                      class="pet-grown why-float-c"
+                      src="./assets/visual/companion-mascot.jpg"
+                      alt=""
+                      width="112"
+                      height="112"
+                    />
+                    <span class="pet-spark">✦</span>
+                    <span class="pet-heart">♥</span>
+                  </div>
+                </div>
+              </div>
+              <h3>Raise something together.</h3>
+              <p>Care for one shared companion, from egg to daily routine.</p>
+            </article>
+
+            <article class="why-item">
+              <div class="why-visual why-visual--race" aria-hidden="true">
+                <div class="race-card">
+                  <p class="race-kicker">Love Race</p>
+                  <div class="race-row">
+                    <span class="race-score">12</span>
+                    <span class="race-heart">
+                      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+                        <path
+                          d="M12 20s-6.6-4.1-6.6-9.1C5.4 8.4 7.2 6.8 9.3 6.8c1.2 0 2.2.6 2.7 1.6.5-1 1.5-1.6 2.7-1.6 2.1 0 3.9 1.6 3.9 4.1 0 5-6.6 9.1-6.6 9.1z"
+                          fill="#C56B62"
+                        />
+                      </svg>
+                    </span>
+                    <span class="race-score">9</span>
+                  </div>
+                </div>
+              </div>
+              <h3>Make love a little playful.</h3>
+              <p>Tiny interactions and Love Race make ordinary days more fun.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="close-cta" id="get-the-app" aria-labelledby="close-heading">
+        <div class="shell close-inner">
+          <div class="close-sign" aria-hidden="true">
+            <span class="close-heart">♥</span>
+            <img
+              class="close-mascot"
+              src="./assets/visual/companion-mascot.jpg"
+              alt=""
+              width="180"
+              height="180"
+            />
+            <span class="close-spark">✦</span>
+            <span class="close-note">
+              <img
+                src="./assets/visual/mood-missing-you.webp"
+                alt=""
+                width="20"
+                height="20"
+              />
+              Missing you
+            </span>
+          </div>
+          <p class="close-eyebrow">StillYours</p>
+          <h2 id="close-heading">Keep a little of them with you.</h2>
+          <p class="close-lead">
+            A shared space for the small things that make you feel close.
+          </p>
+          <div class="store-tray">
+            <a
+              class="store-apple"
+              data-store="app"
+              data-cta-id="final"
+              href="https://apps.apple.com/us/app/stillyours-couples-app/id6800851245"
+            >
+              <img
+                src="./assets/stores/app-store-badge.svg"
+                alt="Download StillYours on the App Store"
+                width="160"
+                height="53"
+                decoding="async"
+              />
+            </a>
+            <a
+              class="store-play"
+              data-store="play"
+              data-cta-id="final"
+              href="https://play.google.com/store/apps/details?id=com.bekirsucikaran.our_child"
+            >
+              <img
+                src="./assets/stores/google-play-badge.png"
+                alt="Get it on Google Play"
+                width="168"
+                height="50"
+                decoding="async"
+              />
+            </a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer" id="site-footer">
+    <footer class="site-footer">
       <div class="shell footer-inner">
-        <div class="footer-brand">
-          <p class="wordmark footer-wordmark">StillYours</p>
-          <p class="footer-caption">Made for two.</p>
-        </div>
-        <nav class="footer-nav" aria-label="Legal and store">
+        <a class="footer-brand" href="./">
+          <img
+            class="footer-mark"
+            src="./assets/brand/app-icon-192.png"
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span class="wordmark">StillYours</span>
+        </a>
+        <nav class="footer-nav" aria-label="Legal">
           <a href="./privacy.html">Privacy</a>
           <a href="./terms.html">Terms</a>
           <a href="./support.html">Support</a>
-          <a
-            data-store="app"
-            data-cta-id="footer"
-            href="https://apps.apple.com/us/app/stillyours-couples-app/id6800851245"
-            >App Store</a
-          >
-          <a
-            data-store="play"
-            data-cta-id="footer"
-            href="https://play.google.com/store/apps/details?id=com.bekirsucikaran.our_child"
-            >Google Play</a
-          >
         </nav>
         <p class="footer-copy">© 2026 StillYours</p>
-        <p class="footer-legal">
-          Apple, the Apple logo, and App Store are trademarks of Apple Inc.
-          Google Play and the Google Play logo are trademarks of Google LLC.
-        </p>
       </div>
     </footer>
-
-    <div class="sticky-cta" id="sticky-cta" hidden>
-      <p class="sticky-label">Get StillYours</p>
-      <div class="sticky-actions">
-        <a
-          class="store-apple store-apple--compact"
-          data-store="app"
-          data-cta-id="sticky"
-          href="https://apps.apple.com/us/app/stillyours-couples-app/id6800851245"
-        >
-          <img
-            src="./assets/stores/app-store-badge.svg"
-            alt="Download StillYours on the App Store"
-            width="96"
-            height="32"
-            loading="lazy"
-            decoding="async"
-          />
-        </a>
-        <a
-          class="store-play store-play--compact"
-          data-store="play"
-          data-cta-id="sticky"
-          href="https://play.google.com/store/apps/details?id=com.bekirsucikaran.our_child"
-        >
-          <img
-            src="./assets/stores/google-play-badge.png"
-            alt="Get it on Google Play"
-            width="108"
-            height="32"
-            loading="lazy"
-            decoding="async"
-          />
-        </a>
-        <p class="store-soon store-soon--compact" data-store-soon hidden>
-          <span class="store-soon-title">Coming to the App Store</span>
-        </p>
-      </div>
-    </div>
   </body>
 </html>

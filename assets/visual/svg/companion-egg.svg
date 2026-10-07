@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="eggFill" x1="100" y1="24" x2="100" y2="200">
+      <stop offset="0%" stop-color="#FFF8F0"/>
+      <stop offset="42%" stop-color="#FAF0E4"/>
+      <stop offset="100%" stop-color="#F5E6D6"/>
+    </linearGradient>
+    <radialGradient id="eggShine" cx="38%" cy="28%" r="42%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="eggShade" cx="72%" cy="78%" r="58%">
+      <stop offset="40%" stop-color="#E2B89A" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#E2B89A" stop-opacity="0.18"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="100" cy="222" rx="44" ry="8" fill="#2F2924" opacity="0.10"/>
+  <path d="M100 26c34 0 62 42 62 92 0 54-28 84-62 86C66 202 38 172 38 118 38 68 66 26 100 26Z" fill="url(#eggFill)"/>
+  <path d="M100 26c34 0 62 42 62 92 0 54-28 84-62 86C66 202 38 172 38 118 38 68 66 26 100 26Z" fill="url(#eggShine)"/>
+  <path d="M100 26c34 0 62 42 62 92 0 54-28 84-62 86C66 202 38 172 38 118 38 68 66 26 100 26Z" fill="url(#eggShade)"/>
+  <path d="M100 26c34 0 62 42 62 92 0 54-28 84-62 86C66 202 38 172 38 118 38 68 66 26 100 26Z" stroke="#E2B89A" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse cx="72" cy="136" rx="13" ry="9" fill="#F3B4A6" opacity="0.46"/>
+  <ellipse cx="128" cy="136" rx="13" ry="9" fill="#F3B4A6" opacity="0.46"/>
+  <ellipse cx="80" cy="118" rx="8.5" ry="10.5" fill="#4A3228"/>
+  <ellipse cx="120" cy="118" rx="8.5" ry="10.5" fill="#4A3228"/>
+  <ellipse cx="77.5" cy="114" rx="2.8" ry="3.6" fill="#FFF8F0" opacity="0.9"/>
+  <ellipse cx="117.5" cy="114" rx="2.8" ry="3.6" fill="#FFF8F0" opacity="0.9"/>
+  <path d="M90 146c4.2 7 15.8 7 20 0" stroke="#4A3228" stroke-width="2.6" stroke-linecap="round"/>
+</svg>
