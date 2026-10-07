@@ -22,13 +22,12 @@ Relative asset paths are required so GitHub Pages can serve the site from
 
 Edit `config.js`:
 
-- `APP_STORE_URL`
-- `GOOGLE_PLAY_URL`
+- `APP_STORE_URL` — leave empty until a public App Store listing is confirmed
+- `GOOGLE_PLAY_URL` — live Play listing
 - `GA4_MEASUREMENT_ID`
 
-Leave them empty until the listings and measurement ID are ready. Empty values
-keep the page working without console errors. Unavailable store buttons stay
-visible and do not navigate.
+Unavailable store buttons stay visible as a Coming Soon lockup and do not
+navigate. Do not invent an App Store URL.
 
 ## Tracking
 

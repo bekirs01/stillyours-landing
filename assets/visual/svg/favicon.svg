@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="StillYours">
+  <rect width="32" height="32" rx="8" fill="#F6F0E6"/>
+  <rect x="3.5" y="3.5" width="25" height="25" rx="6.5" fill="#FFFBF5" stroke="#E0D3C4" stroke-width="0.8"/>
+  <path fill="#D07E70" fill-opacity="0.72" d="M16 22.6s-6.4-3.7-6.4-8.1C9.6 12.2 11.3 11 13 11c1.1 0 2 .55 3 1.65C17 11.55 17.9 11 19 11c1.7 0 3.4 1.2 3.4 3.5 0 4.4-6.4 8.1-6.4 8.1z"/>
+</svg>

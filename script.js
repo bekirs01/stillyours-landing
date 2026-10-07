@@ -6,15 +6,24 @@
   var playStoreUrl = String(config.GOOGLE_PLAY_URL || "").trim();
   var measurementId = String(config.GA4_MEASUREMENT_ID || "").trim();
   var lastClick = { key: "", at: 0 };
+  var reduceMotion = false;
+
+  try {
+    reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+  } catch (err) {
+    reduceMotion = false;
+  }
 
   function isUsableHttpUrl(value) {
     if (!value) {
       return false;
     }
     try {
-      var url = new URL(value);
+      var url = new URL(value, window.location.href);
       return url.protocol === "https:" || url.protocol === "http:";
-    } catch (err) {
+    } catch (error) {
       return false;
     }
   }
@@ -41,7 +50,7 @@
   }
 
   function isDesktop() {
-    return window.matchMedia("(min-width: 1024px)").matches;
+    return window.matchMedia("(min-width: 768px)").matches;
   }
 
   function readLandingUtms() {
@@ -131,8 +140,14 @@
     window.gtag("event", eventName, payload);
   }
 
-  function openStore(url) {
-    window.open(url, "_blank", "noopener,noreferrer");
+  function fallbackCtaHref() {
+    if (document.getElementById("download")) {
+      return "#download";
+    }
+    if (document.getElementById("final-cta")) {
+      return "#final-cta";
+    }
+    return "./#download";
   }
 
   function preferredStore() {
@@ -162,18 +177,17 @@
     var usable = isUsableHttpUrl(url);
     if (usable) {
       el.setAttribute("href", url);
-      el.setAttribute("rel", "noopener noreferrer");
-      el.setAttribute("target", "_blank");
+      el.removeAttribute("hidden");
       el.removeAttribute("aria-disabled");
-    } else {
-      el.setAttribute("href", fallbackCtaHref());
-      el.setAttribute("aria-disabled", "true");
       el.removeAttribute("target");
-      el.removeAttribute("rel");
+    } else {
+      el.setAttribute("hidden", "");
+      el.setAttribute("aria-disabled", "true");
+      el.removeAttribute("href");
     }
 
     el.addEventListener("click", function (event) {
-      var key = eventName + ":" + (el.id || destinationStore);
+      var key = eventName + ":" + (el.id || el.getAttribute("data-cta-id") || destinationStore);
       if (shouldDebounce(key)) {
         event.preventDefault();
         return;
@@ -186,23 +200,30 @@
     });
   }
 
-  function fallbackCtaHref() {
-    return document.getElementById("final-cta") ? "#final-cta" : "./#final-cta";
+  function syncComingSoon() {
+    var hasAppStore = isUsableHttpUrl(appStoreUrl);
+    document.documentElement.classList.toggle("has-app-store", hasAppStore);
+    document.querySelectorAll("[data-store-soon]").forEach(function (el) {
+      if (hasAppStore) {
+        el.setAttribute("hidden", "");
+      } else {
+        el.removeAttribute("hidden");
+      }
+    });
   }
 
-  function bindGetApp(el, options) {
+  function bindGetApp(el) {
     if (!el) {
       return;
     }
-    options = options || {};
     el.setAttribute("href", fallbackCtaHref());
 
     el.addEventListener("click", function (event) {
-      if (options.desktopScrolls && isDesktop()) {
-        return;
-      }
       var dest = preferredStore();
       if (!dest) {
+        return;
+      }
+      if (detectPlatform() !== "android") {
         return;
       }
       if (shouldDebounce("get-app:" + (el.id || "primary"))) {
@@ -211,11 +232,9 @@
       }
       event.preventDefault();
       trackStoreClick(dest.eventName, dest.destinationStore, dest.url);
-      openStore(dest.url);
+      window.location.href = dest.url;
     });
   }
-
-  document.documentElement.setAttribute("data-platform", detectPlatform());
 
   function syncScrolled() {
     document.documentElement.classList.toggle(
@@ -223,10 +242,97 @@
       window.scrollY > 8
     );
   }
+
+  function setupSticky() {
+    var bar = document.getElementById("sticky-cta");
+    if (!bar || isDesktop()) {
+      return;
+    }
+
+    var hero = document.getElementById("download");
+    var mid = document.getElementById("mid-cta");
+    var closer = document.getElementById("final-cta");
+    if (!hero) {
+      return;
+    }
+
+    var vis = { hero: true, mid: false, closer: false };
+
+    function render() {
+      var show = !vis.hero && !vis.mid && !vis.closer;
+      if (show) {
+        bar.removeAttribute("hidden");
+      } else {
+        bar.setAttribute("hidden", "");
+      }
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      return;
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.target.id === "download") {
+            vis.hero = entry.isIntersecting;
+          } else if (entry.target.id === "mid-cta") {
+            vis.mid = entry.isIntersecting;
+          } else if (entry.target.id === "final-cta") {
+            vis.closer = entry.isIntersecting;
+          }
+        });
+        render();
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -12% 0px" }
+    );
+
+    io.observe(hero);
+    if (mid) {
+      io.observe(mid);
+    }
+    if (closer) {
+      io.observe(closer);
+    }
+    render();
+  }
+
+  function pauseMarqueeOnTouch() {
+    var band = document.querySelector(".notes-atmosphere");
+    var track = document.querySelector(".notes-track");
+    if (!band || !track || reduceMotion) {
+      return;
+    }
+    band.addEventListener("pointerdown", function () {
+      track.style.animationPlayState = "paused";
+    });
+  }
+
+  function stampYear() {
+    var el = document.querySelector(".footer-copy");
+    if (!el) {
+      return;
+    }
+    el.textContent = "© " + new Date().getFullYear() + " StillYours";
+  }
+
+  if (!isUsableHttpUrl(playStoreUrl)) {
+    document.querySelectorAll('[data-store="play"]').forEach(function (el) {
+      var existing = el.getAttribute("href") || "";
+      if (isUsableHttpUrl(existing)) {
+        playStoreUrl = existing;
+      }
+    });
+  }
+
+  document.documentElement.setAttribute("data-platform", detectPlatform());
+
   window.addEventListener("scroll", syncScrolled, { passive: true });
   syncScrolled();
 
   loadGa4(measurementId);
+  syncComingSoon();
+  stampYear();
 
   document.querySelectorAll('[data-store="app"]').forEach(function (el) {
     bindStoreLink(el, appStoreUrl, "app_store_click", "app_store");
@@ -235,13 +341,7 @@
     bindStoreLink(el, playStoreUrl, "play_store_click", "google_play");
   });
 
-  bindGetApp(document.getElementById("cta-get-app-header"), {
-    desktopScrolls: true
-  });
-  bindGetApp(document.getElementById("cta-get-app"), {
-    desktopScrolls: false
-  });
-  bindGetApp(document.getElementById("cta-get-app-final"), {
-    desktopScrolls: false
-  });
+  bindGetApp(document.getElementById("cta-get-app-header"));
+  setupSticky();
+  pauseMarqueeOnTouch();
 })();
