@@ -223,9 +223,6 @@
       if (!dest) {
         return;
       }
-      if (detectPlatform() !== "android") {
-        return;
-      }
       if (shouldDebounce("get-app:" + (el.id || "primary"))) {
         event.preventDefault();
         return;
