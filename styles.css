@@ -1287,6 +1287,7 @@ main {
   position: relative;
   z-index: var(--z-content);
   padding: 28px 0 36px;
+  scroll-margin-top: calc(var(--header-h) + 16px);
   text-align: center;
   background: linear-gradient(
     180deg,

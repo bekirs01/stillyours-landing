@@ -196,10 +196,6 @@
       if (!target) {
         return;
       }
-      if (shouldDebounce("get-app:" + (el.id || "primary"))) {
-        event.preventDefault();
-        return;
-      }
       event.preventDefault();
       var reduce = false;
       try {
@@ -209,7 +205,7 @@
       }
       target.scrollIntoView({
         behavior: reduce ? "auto" : "smooth",
-        block: "center"
+        block: "start"
       });
     });
   }
